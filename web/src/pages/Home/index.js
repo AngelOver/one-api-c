@@ -53,26 +53,13 @@ const Home = () => {
     }, []);
     return (
         <>
-            {
-                homePageContentLoaded && homePageContent === '' ? <>
-                    <Segment>
-                        <div style="font-size: larger;"><h2 id="💰-定制价格策略">💰 定制价格策略</h2>
-                            <h3 id="📉-超低价-gpt-35·0.1比1">📉 超低价 GPT-3.5·0.1比1</h3>
-                            <p>无论是个人使用还是团队研究，这份超值报价让你无法抵挡！</p>
-                            <h3 id="✨官方-gpt-4·-1比1">✨官方 GPT-4· 1比1</h3>
-                            <p>虽然价格稍微有些偏高，但品质绝对匹敌官网提供——最大限度确保您业务顺利进行!</p>
-                            <h3 id="📉-普通-gpt-35·0.25比1">📉 普通-gpt-35·0.25比1 见 https://api3.a1r.cc</h3>
-                        </div>
-                    </Segment>
-                </> : <>
-                    {
-                        homePageContent.startsWith('https://') ? <iframe
-                            src={homePageContent}
-                            style={{ width: '100%', height: '100vh', border: 'none' }}
-                        /> : <div style={{ fontSize: 'larger' }} dangerouslySetInnerHTML={{ __html: homePageContent }}></div>
-                    }
-                </>
-            }
+            <div style={{font: 'larger'}}><h2>💰 定制价格策略</h2>
+                <h3 >📉 超低价 GPT-3.5 = 0.1比1</h3>
+                <p>无论是个人使用还是团队研究，这份超值报价让你无法抵挡！</p>
+                <h3>✨官方 GPT-4  = 1比1</h3>
+                <p>虽然价格稍微有些偏高，但品质绝对匹敌官网提供——最大限度确保您业务顺利进行!</p>
+                <h3 >📉 普通-gpt-35  = 0.25比1 见 https://api3.a1r.cc</h3>
+            </div>
 
         </>
     );
