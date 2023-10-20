@@ -56,65 +56,13 @@ const Home = () => {
             {
                 homePageContentLoaded && homePageContent === '' ? <>
                     <Segment>
-                        <Header as='h3'>系统状况</Header>
-                        <Grid columns={2} stackable>
-                            <Grid.Column>
-                                <Card fluid>
-                                    <Card.Content>
-                                        <Card.Header>系统信息</Card.Header>
-                                        <Card.Meta>系统信息总览</Card.Meta>
-                                        <Card.Description>
-                                            <p>名称：{statusState?.status?.system_name}</p>
-                                            <p>版本：{statusState?.status?.version ? statusState?.status?.version : "unknown"}</p>
-                                            <p>
-                                                源码：
-                                                <a
-                                                    href='https://github.com/songquanpeng/one-api'
-                                                    target='_blank'
-                                                >
-                                                    https://github.com/songquanpeng/one-api
-                                                </a>
-                                            </p>
-                                            <p>启动时间：{getStartTimeString()}</p>
-                                        </Card.Description>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <Card fluid>
-                                    <Card.Content>
-                                        <Card.Header>系统配置</Card.Header>
-                                        <Card.Meta>系统配置总览</Card.Meta>
-                                        <Card.Description>
-                                            <p>
-                                                邮箱验证：
-                                                {statusState?.status?.email_verification === true
-                                                    ? '已启用'
-                                                    : '未启用'}
-                                            </p>
-                                            <p>
-                                                GitHub 身份验证：
-                                                {statusState?.status?.github_oauth === true
-                                                    ? '已启用'
-                                                    : '未启用'}
-                                            </p>
-                                            <p>
-                                                微信身份验证：
-                                                {statusState?.status?.wechat_login === true
-                                                    ? '已启用'
-                                                    : '未启用'}
-                                            </p>
-                                            <p>
-                                                Turnstile 用户校验：
-                                                {statusState?.status?.turnstile_check === true
-                                                    ? '已启用'
-                                                    : '未启用'}
-                                            </p>
-                                        </Card.Description>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                        </Grid>
+                        <div style="font-size: larger;"><h2 id="💰-定制价格策略">💰 定制价格策略</h2>
+                            <h3 id="📉-超低价-gpt-35·0.1比1">📉 超低价 GPT-3.5·0.1比1</h3>
+                            <p>无论是个人使用还是团队研究，这份超值报价让你无法抵挡！</p>
+                            <h3 id="✨官方-gpt-4·-1比1">✨官方 GPT-4· 1比1</h3>
+                            <p>虽然价格稍微有些偏高，但品质绝对匹敌官网提供——最大限度确保您业务顺利进行!</p>
+                            <h3 id="📉-普通-gpt-35·0.25比1">📉 普通-gpt-35·0.25比1 见 https://api3.a1r.cc</h3>
+                        </div>
                     </Segment>
                 </> : <>
                     {
