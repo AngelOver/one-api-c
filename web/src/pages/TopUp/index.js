@@ -53,6 +53,9 @@ const TopUp = () => {
         if (amount === 0) {
             await getAmount();
         }
+        if (amount === 0) {
+            return;
+        }
         setPayWay(payment)
         setOpen(true);
     }
@@ -143,7 +146,8 @@ const TopUp = () => {
                 if (message === 'success') {
                     setAmount(parseInt(data));
                 } else {
-                    showError(data);
+                    showError(message);
+                    setAmount(0)
                     // setTopUpCount(parseInt(res.data.count));
                     // setAmount(parseInt(data));
                 }
@@ -202,12 +206,12 @@ const TopUp = () => {
                 </Grid>
             </Segment>
             <Segment>
-                <Header as='h3'>在线充值，最低1</Header>
+                <Header as='h3'>在线充值</Header>
                 <Grid columns={2} stackable>
                     <Grid.Column>
                         <Form>
                             <Form.Input
-                                placeholder='充值金额，最低1'
+                                placeholder='充值金额'
                                 name='redemptionCount'
                                 type={'number'}
                                 value={topUpCount}

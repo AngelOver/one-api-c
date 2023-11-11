@@ -20,6 +20,7 @@ const SystemSetting = () => {
         EpayId: '',
         EpayKey: '',
         Price: 7.3,
+        MinCharge: 1,
         TopupGroupRatio: '',
         PayAddress: '',
         Footer: '',
@@ -118,6 +119,7 @@ const SystemSetting = () => {
             name === 'ServerAddress' ||
             name === 'EpayId' ||
             name === 'EpayKey' ||
+            name === 'MinCharge' ||
             name === 'Price' ||
             name === 'PayAddress' ||
             name === 'GitHubClientId' ||
@@ -155,9 +157,14 @@ const SystemSetting = () => {
         }
         let PayAddress = removeTrailingSlash(inputs.PayAddress);
         await updateOption('PayAddress', PayAddress);
-        await updateOption('EpayId', inputs.EpayId);
-        await updateOption('EpayKey', inputs.EpayKey);
+        if (inputs.EpayId !== '') {
+            await updateOption('EpayId', inputs.EpayId);
+        }
+        if (inputs.EpayKey !== '') {
+            await updateOption('EpayKey', inputs.EpayKey);
+        }
         await updateOption('Price', "" + inputs.Price);
+        await updateOption('MinCharge', "" + inputs.MinCharge);
     };
 
     const submitSMTP = async () => {
@@ -306,6 +313,15 @@ const SystemSetting = () => {
                             name='Price'
 
                             min={0}
+                            onChange={handleInputChange}
+                        />
+                        <Form.Input
+                            label='最低充值数量'
+                            placeholder='例如：10，最低10刀起'
+                            value={inputs.MinCharge}
+                            name='MinCharge'
+
+                            min={1}
                             onChange={handleInputChange}
                         />
                     </Form.Group>
